@@ -102,7 +102,7 @@
 		already installed. It's recommended to use the package manager of your OS-distribution for
 		each individual library or, if it doesn't provide those, that of PHP itself called
 		<strong>PEAR</strong>. At least PEAR should most likely be available using the package
-		manager of your OS-distribution. With e.g. a Debian based Linux simply issue the following
+		manager of your OS-distribution. With e.g., a Debian based Linux simply issue the following
 		commands to install the dependencies using PEAR:
 	</p>
 
@@ -117,7 +117,7 @@
 	<p>
 		If it isn't already, make sure the cache directory has permissions of at least 0700 and is
 		owned by the process your webserver is running under. This is used to cache RSS files. It
-		is NOT recommended to set the directory to full write, 0777.
+		is <em>not</em> recommended to set the directory to full write, 0777.
 	</p>
 
 	<h3>Configuration</h3>
@@ -125,11 +125,11 @@
 	<p>
 		WebSVN always requires a special configuration file, for which a template is provided as
 		<code>include/distconfig.php</code>. Only the things mentioned in that template are valid
-		configs at all and some of those are even necessary, e.g. WebSVN obviously needs to know
-		which SVN-repos it should publish. Making the necessary config file available to WebSVN can
+		configs at all and some of those are even necessary, e.g., WebSVN obviously needs to know
+		which SVN repos it should publish. Making the necessary config file available to WebSVN can
 		be done using two ways: Either simply by copying the template file to the hard-coded path
-		<code>include/config.php</code> AND/OR by setting the environment variable
-		<code>WEBSVN_PATH_CONF</code> in a way so that PHP can read it's value. That value is
+		<code>include/config.php</code> and/or by setting the environment variable
+		<code>WEBSVN_PATH_CONF</code> in a way so that PHP can read its value. That value is
 		expected to be the path to the config file to use and things like symlinks work as well of
 		course, as long as those are handled transparently by the file system.
 	</p>
@@ -137,12 +137,12 @@
 	<p>
 		Using the environment variable has two main benefits: One doesn't neet to store additional
 		files in the deployment of WebSVN and the path given by <code>WEBSVN_PATH_CONF</code> is
-		used ADDITIONALLY to <code>include/config.php</code>, if that file is present at all. If
-		not, the file given by the environment variable is used exclusively. This approach allows
-		to override specially chosen configs of some main configuration file using another one
-		based on things like the current location of a request to WebSVN. A webserver like Apache
-		httpd could be configured using <code>Location</code>-blocks to provide different paths to
-		config files using the environment variable like in the following example:
+		used <em>additionally</em> to <code>include/config.php</code>, if that file is present at
+		all. If not, the file given by the environment variable is used exclusively. This approach
+		allows to override specially chosen configs of some main configuration file using another
+		one based on things like the current location of a request to WebSVN. A webserver like
+		Apache HTTPd could be configured using <code>Location</code> blocks to provide different
+		paths to config files using the environment variable like in the following example:
 	</p>
 
 	<pre>
@@ -151,15 +151,15 @@
 &lt;/Location&gt;</pre>
 
 	<p>
-		Considering both the hard-coded config file path and the more dynamic environment variable
-		e.g. allows setups in which one installation of WebSVN hosts various different SVN-repos
+		Considering both the hard coded config file path and the more dynamic environment variable
+		e.g., allows setups in which one installation of WebSVN hosts various different SVN repos
 		configured using <code>$config->parentPath(...)</code>. That statement would simply be added
 		the those files only provided by the environment variable and depending on the location of
-		some request, while all other common things like available templates, syntax highlighting
-		etc. would be set in <code>include/config.php</code>. That allows structuring SVN-repos in
+		some request. All other common things like available templates, syntax highlighting, etc.
+		would be set in <code>include/config.php</code>. That allows structuring SVN repos using
 		subdirs like supported by <code>svnserve</code>, which is otherwise not supported by WebSVN,
-		as it checks if each directory is an SVN-repo already or simply ignores it. The following is
-		a more complete example:
+		as it checks if each directory is an SVN repo already or simply ignores it. The following is
+		a more comprehensive example:
 	</p>
 
 	<ul>
@@ -221,7 +221,7 @@ $config->parentPath("/home/svn_repos/ParentDir3");
 ?&gt;</pre>
 
 	<p>
-		In such a setup, the directory <code>/home/websvn/config/</code> could be a SVN-working copy
+		In such a setup, the directory <code>/home/websvn/config/</code> could be a SVN working copy
 		containing the default config under <code>/home/websvn/config/config.php</code>, being
 		symlinked into the formerly mentioned target in the installation directory of WebSVN. This
 		allows all configs to be managed at the same place and optionally versioned as well.
@@ -358,7 +358,7 @@ $config->parentPath("/home/svn_repos/ParentDir3");
 	<p>
 		First, Apache needs to know that you want to enable MultiViews for the root directory. You
 		may need to enable the MultiViews option in the Apache configuration, as explained in
-		<a href="http://httpd.apache.org/docs/2.2/content-negotiation.html#multiviews">these Apache
+		<a href="http://HTTPd.apache.org/docs/2.2/content-negotiation.html#multiviews">these Apache
 		docs</a>. For example, if my Apache directory root were set <code>/var/apache/htdocs</code>,
 		the corresponding block in Apache might look something like this:
 	</p>
