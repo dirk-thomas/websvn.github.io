@@ -99,11 +99,11 @@
 		<strong>SVN 1.7</strong> or greater. Also note that WebSVN won't currently work in safe
 		mode, due to the need to call the <code>svn</code> and <code>svnlook</code> commands. While
 		no other external programs are required, you need to provide additional PHP libraries if not
-		already installed. It's recommended to use the package manager of your OS-distribution for
+		already installed. It's recommended to use the package manager of your operating system for
 		each individual library or, if it doesn't provide those, that of PHP itself called
-		<strong>PEAR</strong>. At least PEAR should most likely be available using the package
-		manager of your OS-distribution. With e.g., a Debian based Linux simply issue the following
-		commands to install the dependencies using PEAR:
+		<strong>PEAR</strong>. At least PEAR should most likely be available using your package
+		manager. With e.g., a Debian based operating system simply issue the following commands to
+		install the dependencies using PEAR:
 	</p>
 
 	<ol>
@@ -127,7 +127,7 @@
 		<code>include/distconfig.php</code>. Only the things mentioned in that template are valid
 		configs at all and some of those are even necessary, e.g., WebSVN obviously needs to know
 		which SVN repos it should publish. Making the necessary config file available to WebSVN can
-		be done using two ways: Either simply by copying the template file to the hard-coded path
+		be done using two ways: Either simply by copying the template file to the hard coded path
 		<code>include/config.php</code> and/or by setting the environment variable
 		<code>WEBSVN_PATH_CONF</code> in a way so that PHP can read its value. That value is
 		expected to be the path to the config file to use and things like symlinks work as well of
@@ -152,14 +152,14 @@
 
 	<p>
 		Considering both the hard coded config file path and the more dynamic environment variable
-		e.g., allows setups in which one installation of WebSVN hosts various different SVN repos
-		configured using <code>$config->parentPath(...)</code>. That statement would simply be added
-		the those files only provided by the environment variable and depending on the location of
-		some request. All other common things like available templates, syntax highlighting, etc.
-		would be set in <code>include/config.php</code>. That allows structuring SVN repos using
-		subdirs like supported by <code>svnserve</code>, which is otherwise not supported by WebSVN,
-		as it checks if each directory is an SVN repo already or simply ignores it. The following is
-		a more comprehensive example:
+		allows setups in which one installation of WebSVN hosts various SVN repos configured using
+		<code>$config->parentPath(...)</code>. That statement would simply be added the those files
+		only provided by the environment variable and depending on the location of some request. All
+		other common things like available templates, syntax highlighting, etc. would be set in
+		<code>include/config.php</code>. That allows structuring SVN repos using subdirs like is
+		supported by <code>svnserve</code>, which is otherwise not supported by WebSVN. The latter
+		checks if each directory is an SVN repo already or simply ignores it. The following is a
+		more comprehensive example:
 	</p>
 
 	<ul>
