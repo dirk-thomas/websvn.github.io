@@ -127,7 +127,7 @@
 		<code>include/distconfig.php</code>. Only the things mentioned in that template are valid
 		configs at all and some of those are even necessary, e.g., WebSVN obviously needs to know
 		which SVN repos it should publish. Making the necessary config file available to WebSVN can
-		be done using two ways: Either simply by copying the template file to the hard coded path
+		be done using two ways: Either simply by copying the template file to the hard-coded path
 		<code>include/config.php</code> and/or by setting the environment variable
 		<code>WEBSVN_PATH_CONF</code> in a way so that PHP can read its value. That value is
 		expected to be the path to the config file to use and things like symlinks work as well of
@@ -151,7 +151,7 @@
 &lt;/Location&gt;</pre>
 
 	<p>
-		Considering both the hard coded config file path and the more dynamic environment variable
+		Considering both the hard-coded config file path and the more dynamic environment variable
 		allows setups in which one installation of WebSVN hosts various SVN repos configured using
 		<code>$config->parentPath(...)</code>. That statement would simply be added the those files
 		only provided by the environment variable and depending on the location of some request. All
